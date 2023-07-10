@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <changeSet id="20230710-004" author="jdoe">
+        <createTable tableName="Comment">
+            <column name="comment_id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="task_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment_text" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <!-- Add more columns as needed -->
+
+
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="Comment"
+                                 baseColumnNames="task_id"
+                                 constraintName="fk_comment_task"
+                                 referencedTableName="Task"
+                                 referencedColumnNames="task_id"/>
+
+        <addForeignKeyConstraint baseTableName="Comment"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_comment_user"
+                                 referencedTableName="User"
+                                 referencedColumnNames="user_id"/>
+
+    </changeSet>
+
+</databaseChangeLog>
