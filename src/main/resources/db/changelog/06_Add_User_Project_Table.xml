@@ -18,7 +18,7 @@
         <addForeignKeyConstraint baseTableName="User_Project"
                                  baseColumnNames="user_id"
                                  constraintName="fk_user_project_user"
-                                 referencedTableName="User"
+                                 referencedTableName="app_user"
                                  referencedColumnNames="user_id"/>
 
         <addForeignKeyConstraint baseTableName="User_Project"

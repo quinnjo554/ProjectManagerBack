@@ -39,7 +39,7 @@
         <addForeignKeyConstraint baseTableName="Task"
                                  baseColumnNames="assignee_id"
                                  constraintName="fk_task_assignee"
-                                 referencedTableName="User"
+                                 referencedTableName="app_user"
                                  referencedColumnNames="user_id"/>
     </changeSet>
 
