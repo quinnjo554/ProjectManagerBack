@@ -3,7 +3,7 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
-    <changeSet id="20230710-004" author="jdoe">
+    <changeSet id="20230710-004" author="Quinn Johnson">
         <createTable tableName="Comment">
             <column name="comment_id" type="INT" autoIncrement="true">
                 <constraints primaryKey="true"/>
@@ -34,7 +34,7 @@
         <addForeignKeyConstraint baseTableName="Comment"
                                  baseColumnNames="user_id"
                                  constraintName="fk_comment_user"
-                                 referencedTableName="User"
+                                 referencedTableName="app_user"
                                  referencedColumnNames="user_id"/>
 
     </changeSet>
