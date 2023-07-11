@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
     <changeSet id="Add_Task_Label_Table" author="Quinn Johnson">
-    <createTable tableName="Task_Label">
+    <createTable tableName="task_label">
         <column name="task_id" type="INT">
             <constraints nullable="false"/>
         </column>
@@ -12,16 +12,16 @@
             <constraints nullable="false"/>
         </column>
     </createTable>
-        <addForeignKeyConstraint baseTableName="Task_Label"
+        <addForeignKeyConstraint baseTableName="task_label"
                                  baseColumnNames="task_id"
                                  constraintName="fk_task_label_task"
-                                 referencedTableName="Task"
+                                 referencedTableName="task"
                                  referencedColumnNames="task_id"/>
 
-        <addForeignKeyConstraint baseTableName="Task_Label"
+        <addForeignKeyConstraint baseTableName="task_label"
                                  baseColumnNames="label_id"
                                  constraintName="fk_task_label_label"
-                                 referencedTableName="Label"
+                                 referencedTableName="label"
                                  referencedColumnNames="label_id"/>
     </changeSet>
 

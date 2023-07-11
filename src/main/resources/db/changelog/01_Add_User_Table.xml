@@ -19,7 +19,7 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-
+        <addUniqueConstraint tableName="app_user" columnNames="email"></addUniqueConstraint>
     </changeSet>
 
 </databaseChangeLog>

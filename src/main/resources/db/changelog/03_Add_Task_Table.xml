@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
     <changeSet id="Added_Task_Table" author="Quinn Johnson">
-        <createTable tableName="Task">
+        <createTable tableName="task">
             <column name="task_id" type="INT" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
@@ -30,13 +30,13 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
-        <addForeignKeyConstraint baseTableName="Task"
+        <addForeignKeyConstraint baseTableName="task"
                                  baseColumnNames="project_id"
                                  constraintName="fk_task_project"
-                                 referencedTableName="Project"
+                                 referencedTableName="project"
                                  referencedColumnNames="project_id"/>
 
-        <addForeignKeyConstraint baseTableName="Task"
+        <addForeignKeyConstraint baseTableName="task"
                                  baseColumnNames="assignee_id"
                                  constraintName="fk_task_assignee"
                                  referencedTableName="app_user"
