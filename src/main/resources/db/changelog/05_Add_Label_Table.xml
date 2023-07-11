@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
     <changeSet id="Added_Label_Table" author="Quinn Johnson">
-    <createTable tableName="Label">
+    <createTable tableName="label">
         <column name="label_id" type="INT" autoIncrement="true">
             <constraints primaryKey="true"/>
         </column>

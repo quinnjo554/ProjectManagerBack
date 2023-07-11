@@ -11,4 +11,9 @@ class ControllerAdvice {
     fun handleUserNotFoundException(exception: UserNotFoundException): ResponseEntity<String> {
         return ResponseEntity(exception.message, HttpStatus.NOT_FOUND)
     }
+
+    @ExceptionHandler(UserAlreadyExistsException::class)
+    fun handleUserAlreadyExistException(exception: UserAlreadyExistsException): ResponseEntity<String> {
+        return ResponseEntity(exception.message, HttpStatus.BAD_REQUEST)
+    }
 }
