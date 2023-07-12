@@ -9,7 +9,7 @@ import jakarta.persistence.Table
 import java.time.LocalDate
 
 @Entity
-@Table(name = "Project")
+@Table(name = "project")
 data class Project(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
