@@ -29,7 +29,7 @@ class UserController(private val userService: UserService) {
     }
 
     @PostMapping("/post")
-    fun addPokemonToTrainer(@RequestBody userRequest: UserRequest): User {
+    fun addUser(@RequestBody userRequest: UserRequest): User {
         return userService.createUser(userRequest)
     }
 
