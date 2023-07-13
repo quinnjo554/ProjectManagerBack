@@ -23,14 +23,13 @@ class ProjectController(private val projectService: ProjectService) {
     }
 
     @PostMapping("/post")
-    fun addProject(@RequestBody projectRequest: ProjectRequest) : ResponseEntity<Project>{
+    fun addProject(@RequestBody projectRequest: ProjectRequest): ResponseEntity<Project> {
        val project = projectService.addProject(projectRequest)
-       return ResponseEntity(project,HttpStatus.OK)
+       return ResponseEntity(project, HttpStatus.OK)
     }
 
-    @DeleteMapping("/delete")
-    fun deleteProjectId(@PathVariable id: Int){
+    @DeleteMapping("/delete/{id}")
+    fun deleteProjectId(@PathVariable id: Int) {
         projectService.deleteProjectById(id)
     }
-
 }

@@ -22,5 +22,4 @@ data class UserProject(
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
     val project: Project,
-
 )
