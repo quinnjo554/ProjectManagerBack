@@ -11,7 +11,7 @@ import jakarta.persistence.Table
 import java.time.LocalDateTime
 
 @Entity
-@Table(name = "com.example.demo.models.Comment")
+@Table(name = "comment")
 data class Comment(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
