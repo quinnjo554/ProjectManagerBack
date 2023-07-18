@@ -23,7 +23,11 @@ data class User(
         @Column(name = "password")
         var password: String = "",
 
-        //add img and description
+        @Column(name = "img")
+        var img: String = "",
+
+        @Column(name = "description")
+        var description: String = ""
 )
 
 
