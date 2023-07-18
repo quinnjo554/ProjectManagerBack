@@ -22,6 +22,8 @@ data class User(
 
         @Column(name = "password")
         var password: String = "",
+
+        //add img and description
 )
 
 

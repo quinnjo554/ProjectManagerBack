@@ -12,6 +12,9 @@ import java.time.LocalDate
 @Entity
 @Table(name = "Task")
 data class Task(
+        // use toast for feedback on adding
+        // use stepper for first time users
+        // use drawer for adding projects and chat
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val taskId: Long = 0,
