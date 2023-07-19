@@ -1,4 +1,7 @@
 package com.example.demo.models
+import com.example.demo.deserializer.LocalDateDeserializer
+import com.fasterxml.jackson.annotation.JsonFormat
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -17,7 +20,8 @@ data class Task(
         // use drawer for adding projects and chat
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val taskId: Long = 0,
+    @Column(name = "task_id")
+    val id: Long = 0,
 
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
@@ -34,6 +38,8 @@ data class Task(
     val assignee: User,
 
     @Column(nullable = true)
+    @JsonFormat(pattern = "MM-dd-yyyy")
+    @JsonDeserialize(using = LocalDateDeserializer::class)
     val dueDate: LocalDate?,
 
     @Column(nullable = true)
