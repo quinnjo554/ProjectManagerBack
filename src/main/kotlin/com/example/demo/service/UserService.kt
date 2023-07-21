@@ -23,7 +23,7 @@ class UserService(private val userRepo: UserRepo) {
         if (userRepo.findByEmail(userRequest.email) != null) {
             throw UserAlreadyExistsException()
         }
-        val user = User(0, userRequest.userName, userRequest.email, userRequest.password,userRequest.img,userRequest.description)
+        val user = User(0, userRequest.userName, userRequest.email, userRequest.password, userRequest.img, userRequest.description)
         return userRepo.save(user)
     }
 

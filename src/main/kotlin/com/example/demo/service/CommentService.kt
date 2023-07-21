@@ -5,6 +5,10 @@ import com.example.demo.repository.CommentRepo
 import com.example.demo.repository.TaskRepo
 import com.example.demo.repository.UserRepo
 import com.example.demo.request.CommentRequest
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.domain.Sort
+import org.springframework.data.web.PageableDefault
 import org.springframework.stereotype.Service
 
 @Service
@@ -25,6 +29,10 @@ class CommentService(private val commentRepo: CommentRepo, private val taskRepo:
     }
     fun getComment(commentId: Int): Comment {
         return commentRepo.findById(commentId).orElseThrow { Exception("Bad") }
+    }
+
+    fun getAllCommentsByTask(taskId: Int, @PageableDefault(size = 10, sort = ["id"], direction = Sort.Direction.ASC) pageable: Pageable): Page<Comment> {
+        return commentRepo.findAllByTaskId(taskId, pageable) ?: throw Exception("not found")
     }
 
     fun deleteComment(commentId: Int) {
