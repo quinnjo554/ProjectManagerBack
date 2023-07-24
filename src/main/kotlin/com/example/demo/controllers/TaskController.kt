@@ -29,6 +29,12 @@ class TaskController(private val taskService: TaskService) {
         return ResponseEntity(task, HttpStatus.OK)
     }
 
+    @GetMapping("/user/{id}")
+    fun getTaskForUser(@PathVariable id: Int, @PageableDefault(size = 10, sort = ["id"], direction = Sort.Direction.ASC) pageable: Pageable): ResponseEntity<Page<Task>> {
+        val task = taskService.getTaskAssignedToUser(id, pageable)
+        return ResponseEntity(task, HttpStatus.OK)
+    }
+
     @PostMapping("/add")
     fun addTaskToProject(@RequestBody taskRequest: TaskRequest): Task {
         return taskService.addTask(taskRequest)
