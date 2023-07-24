@@ -31,7 +31,9 @@ class TaskService(private val taskRepo: TaskRepo, private val projectRepo: Proje
         return taskRepo.findAllByProject(project, pageable)
     }
 
-    fun getTaskAssignedToUser() {
+    fun getTaskAssignedToUser(userId: Int, @PageableDefault(size = 10, sort = ["id"], direction = Sort.Direction.ASC) pageable: Pageable): Page<Task> {
+        val user = userRepo.findById(userId).orElseThrow { Exception("Custom needed") }
+        return taskRepo.findAllByAssignee(user, pageable)
     }
 
     fun updateTask() {
